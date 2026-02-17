@@ -18,6 +18,7 @@ SystemVerilog implementation of a 5-stage pipelined ARMv8-A subset CPU for EE 46
 
 ```tcl
 do runlab.do
+```
 
 This compiles all `.sv` sources, uses `+acc` for debugging, and launches the `cpustim` testbench with the default waveform script. The current `runlab.do` points to `benchmarks/test12_CRC16.arm`.
 3. To switch benchmarks without editing the do file, re-run `vlog` with a different `BENCHMARK` define and restart `vsim`, for example:
