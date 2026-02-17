@@ -17,17 +17,24 @@ SystemVerilog implementation of a 5-stage pipelined ARMv8-A subset CPU for EE 46
 2. From the transcript, run the provided do file:
 
 ```tcl
+
 do runlab.do
+
 ```
 
 This compiles all `.sv` sources, uses `+acc` for debugging, and launches the `cpustim` testbench with the default waveform script. The current `runlab.do` points to `benchmarks/test12_CRC16.arm`.
 3. To switch benchmarks without editing the do file, re-run `vlog` with a different `BENCHMARK` define and restart `vsim`, for example:
+
+
+```tcl
 
 vlib work
 vlog +define+BENCHMARK="./benchmarks/test04_LdurStur.arm" "./*.sv"
 vsim -voptargs="+acc" -t 1ps -lib work cpustim
 do cpustim_wave.do
 run -all
+
+```
 
 Alternatively, change the active `\`define BENCHMARK` line near the top of `instructmem.sv`.
 
@@ -38,3 +45,19 @@ Alternatively, change the active `\`define BENCHMARK` line near the top of `inst
 - Data memory is little-endian and supports 1/2/4/8-byte aligned accesses; `xfer_size` is fixed to 8 bytes in `cpu.sv`.
 - Wave configuration is in `cpustim_wave.do`; add signals there if you probe new modules.
 
+## Running the simulation (ModelSim)
+
+1. Start ModelSim and change to this folder.
+2. From the transcript, run the provided do file:
+
+```tcl
+do runlab.do
+This compiles all .sv sources, uses +acc for debugging, and launches the cpustim testbench with the default waveform script. The current runlab.do points to benchmarks/test12_CRC16.arm.
+
+To switch benchmarks without editing the do file, re-run vlog with a different BENCHMARK define and restart vsim, for example:
+
+vlib work
+vlog +define+BENCHMARK="./benchmarks/test04_LdurStur.arm" "./*.sv"
+vsim -voptargs="+acc" -t 1ps -lib work cpustim
+do cpustim_wave.do
+run -all
