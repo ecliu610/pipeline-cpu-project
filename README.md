@@ -45,9 +45,3 @@ Alternatively, change the active `\`define BENCHMARK` line near the top of `inst
 - Data memory is little-endian and supports 1/2/4/8-byte aligned accesses; `xfer_size` is fixed to 8 bytes in `cpu.sv`.
 - Wave configuration is in `cpustim_wave.do`; add signals there if you probe new modules.
 
-## Running the simulation (ModelSim)
-
-1. Start ModelSim and change to this folder.
-2. From the transcript, run the provided do file:
-
-
